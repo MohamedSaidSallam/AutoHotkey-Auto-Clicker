@@ -5,9 +5,9 @@ Menu, Tray, Add, Show hotkeys list, showHotkeysList
 Menu, Tray, Add
 
 ; Mode Submenu
-Menu, ModeMenu, Add, toggle rapid click, placeholder
+Menu, ModeMenu, Add, toggle rapid click, switchModeToggle
 Menu, ModeMenu, check, toggle rapid click
-Menu, ModeMenu, Add, Rapid click on click, placeholder
+Menu, ModeMenu, Add, Rapid click on click, switchModeOnClick
 
 Menu, Tray, Add, Mode, :ModeMenu
 Menu, Tray, Add
@@ -47,6 +47,23 @@ Return
 placeholder:
     TrayTip placeholder, placeholder.
 return
+
+
+switchModeOnClick:
+    TrayTip Mode Switched, Mode Switched to: Rapid Click On click.
+    Gosub, uncheckAll
+    Menu, ModeMenu, check, Rapid click on click
+    return
+switchModeToggle:
+    TrayTip Mode Switched, Mode Switched to: Toggle Rapid Click.
+    Gosub, uncheckAll
+    Menu, ModeMenu, check, toggle rapid click
+    return
+
+uncheckAll:
+    Menu, ModeMenu, uncheck, toggle rapid click
+    Menu, ModeMenu, uncheck, Rapid click on click
+    return
 
 showHotkeysList:
     Gui 1:Show, ,Hotkeys List
