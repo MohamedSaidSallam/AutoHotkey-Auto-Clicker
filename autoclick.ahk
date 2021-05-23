@@ -1,5 +1,9 @@
 Menu, Tray, Tip , AutoHotkey Auto Clicker - DPX
 
+#MaxThreadsPerHotkey 3
+
+clickDelay := 10
+
 ; header menu
 Menu, Tray, Add, Show hotkeys list, showHotkeysList
 Menu, Tray, Add
@@ -24,6 +28,7 @@ Gui, Font, s13
 Gui 1:Add, Text, ,
 (
 F1: Show this menu
+F2: Toggle Clicker
 F3: Toggle pause and suspend everyting (can only be re-activated from tray icon)
 F5: Exit
 
@@ -36,6 +41,9 @@ Return
 
 *F1::
     Gosub, showHotkeysList
+    return
+*F2::
+    Gosub, toggleAutoClicking
     return
 *F3::
     Gosub, togglePauseAndSuspend
@@ -54,6 +62,18 @@ placeholder:
     TrayTip placeholder, placeholder.
 return
 
+toggleAutoClicking:
+    Toggle := !Toggle
+    toggleString := Toggle ? "ON" : "OFF"
+    TrayTip Auto Clicking %toggleString%, F2 to toggle`, F5 to panic quit
+    Loop
+    {
+        If (!Toggle)
+            Break
+        Click
+        Sleep clickDelay
+    }
+return
 
 switchModeOnClick:
     TrayTip Mode Switched, Mode Switched to: Rapid Click On click.
