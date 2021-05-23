@@ -26,6 +26,8 @@ Gui 1:Add, Text, ,
 F1: Show this menu
 F3: Toggle pause and suspend everyting (can only be re-activated from tray icon)
 F5: Exit
+
+Ctrl + Shift + 1 : Show mode submenu
 )
 
 Return
@@ -40,6 +42,10 @@ Return
     return
 *F5::
     Gosub, exitAppSub
+    return
+
+^+1::
+    Menu, ModeMenu, Show
     return
 
 ; Subs
