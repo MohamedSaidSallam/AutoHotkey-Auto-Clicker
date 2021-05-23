@@ -7,6 +7,7 @@ Menu, Tray, Tip , AutoHotkey Auto Clicker - DPX
 
 
 clickDelay := 10
+clickIncrementSize := 10
 toggle := 0
 
 ; header menu
@@ -38,6 +39,8 @@ F3: Toggle pause and suspend everyting (can only be re-activated from tray icon)
 F5: Exit
 
 Ctrl + Shift + 1 : Show mode submenu
+Ctrl + Shift + 2 : Decrement Delay
+Ctrl + Shift + 3 : Increment Delay
 )
 
 Return
@@ -59,6 +62,12 @@ Return
 
 ^+1::
     Menu, ModeMenu, Show
+    return
+^+2::
+    Gosub, decrementDelay
+    return
+^+3::
+    Gosub, incrementDelay
     return
 
 ; Subs
@@ -98,6 +107,13 @@ uncheckAll:
 
 showHotkeysList:
     Gui 1:Show, ,Hotkeys List
+    return
+
+decrementDelay:
+    clickDelay := (clickDelay - clickIncrementSize > 0) ? clickDelay - clickIncrementSize : 10
+    return
+incrementDelay:
+    clickDelay += clickIncrementSize
     return
 
 togglePauseAndSuspend:
