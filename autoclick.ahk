@@ -7,6 +7,7 @@ Menu, Tray, Tip , AutoHotkey Auto Clicker - DPX
 
 
 clickDelay := 10
+toggle := 0
 
 ; header menu
 Menu, Tray, Add, Show hotkeys list, showHotkeysList
