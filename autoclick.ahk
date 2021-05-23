@@ -1,6 +1,10 @@
+#NoEnv
+#MaxThreadsPerHotkey 3
+
+#Warn
+
 Menu, Tray, Tip , AutoHotkey Auto Clicker - DPX
 
-#MaxThreadsPerHotkey 3
 
 clickDelay := 10
 
