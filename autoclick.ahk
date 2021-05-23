@@ -59,13 +59,13 @@ Return
 ; Subs
 
 placeholder:
-    TrayTip placeholder, placeholder.
+    TrayTip, placeholder, placeholder.
 return
 
 toggleAutoClicking:
     Toggle := !Toggle
     toggleString := Toggle ? "ON" : "OFF"
-    TrayTip Auto Clicking %toggleString%, F2 to toggle`, F5 to panic quit
+    TrayTip, Auto Clicking %toggleString%, F2 to toggle`, F5 to panic quit
     Loop
     {
         If (!Toggle)
@@ -76,12 +76,12 @@ toggleAutoClicking:
 return
 
 switchModeOnClick:
-    TrayTip Mode Switched, Mode Switched to: Rapid Click On click.
+    TrayTip, Mode Switched, Mode Switched to: Rapid Click On click.
     Gosub, uncheckAll
     Menu, ModeMenu, check, Rapid click on click
     return
 switchModeToggle:
-    TrayTip Mode Switched, Mode Switched to: Toggle Rapid Click.
+    TrayTip, Mode Switched, Mode Switched to: Toggle Rapid Click.
     Gosub, uncheckAll
     Menu, ModeMenu, check, toggle rapid click
     return
