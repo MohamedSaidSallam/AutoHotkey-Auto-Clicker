@@ -85,7 +85,7 @@ toggleAutoClicking:
         If (!Toggle)
             Break
         Click
-        Sleep clickDelay
+        Sleep %clickDelay%
     }
 return
 
