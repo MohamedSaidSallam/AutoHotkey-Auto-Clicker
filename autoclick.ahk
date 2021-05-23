@@ -111,9 +111,13 @@ showHotkeysList:
 
 decrementDelay:
     clickDelay := (clickDelay - clickIncrementSize > 0) ? clickDelay - clickIncrementSize : 10
+    TrayTip
+    TrayTip, Click Delay Decremented, Current Value: %clickDelay%., 1
     return
 incrementDelay:
     clickDelay += clickIncrementSize
+    TrayTip
+    TrayTip, Click Delay Incremented, Current Value: %clickDelay%., 1
     return
 
 togglePauseAndSuspend:
