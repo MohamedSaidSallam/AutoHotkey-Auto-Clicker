@@ -52,6 +52,10 @@ Return
 
 *F1::
     Gosub, showHotkeysList
+    while GetKeyState("F1", "P"){
+        Sleep 10
+    }
+    Gosub, hideHotkeysList
     return
 *F2::
     Gosub, toggleAutoClicking
@@ -110,6 +114,9 @@ uncheckAll:
 
 showHotkeysList:
     Gui 1:Show, ,Hotkeys List
+    return
+hideHotkeysList:
+    Gui, 1:Hide
     return
 
 decrementDelay:
