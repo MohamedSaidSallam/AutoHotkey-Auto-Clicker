@@ -29,6 +29,9 @@ Menu, Tray, Add, Exit, exitAppSub
 Menu, Tray, NoStandard
 
 
+;On Start Help Notification
+TrayTip, Hello, Press F1 for help.
+
 ; Hotkeys List GUI
 Gui, Font, s13
 Gui 1:Add, Text, ,
